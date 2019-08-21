@@ -1,0 +1,38 @@
+<div class="shoe-container" [ngClass]="shoeContainerClass">
+
+	<ng-container *ngIf="currentOption">
+		<ng-container *ngFor="let shoes of upcomingShoes">
+			<div *ngIf="filterShoes(shoes)" class="shoe-block shoe-block-disabled {{ shoes.category }} {{ shoes.brand }}">
+				<img class="img-responsive" [src]="scene7service(shoes.imageSource, false, 'png')">
+				<p class="shoe-block__title">
+					{{ shoes.name }}
+				</p>
+				<p class="shoe-info">
+					<span class="shoe-info__date">{{ shoes.displayDate }}</span>
+					<span class="shoe-info__divider">|</span>
+					<span class="shoe-info__cta{{shoes.cssClass}} text-uppercase"><a target="_blank" [href]="shoes.productUrl">Learn More <i class="material-icons">arrow_forward</i></a></span>
+				</p>
+			</div>
+		</ng-container>
+		<p *ngIf="!shoesExist" class='no-results-error'>No Results Found</p>
+	</ng-container>
+
+	<ng-container *ngIf="!currentOption">
+		<ng-container *ngFor="let shoes of launchedShoes"> <!--c-->
+			<a *ngIf="filterShoes(shoes)" target="_blank" [href]="shoes.productUrl" class="shoe-block shoe-block-disabled {{ shoes.category }}" [attr.data-em]="shoes.omnitureTag">
+				<img class="img-responsive" [src]="scene7service(shoes.imageSource, false, 'png')">
+				<p class="shoe-block__title">
+					{{ shoes.name }}
+				</p>
+				<p class="shoe-info">
+					<span class="shoe-info__date">{{ shoes.displayDate }}</span>
+					<span class="shoe-info__divider">|</span>
+					<span class="shoe-info__price">{{ shoes.price }}</span>
+					<span class="shoe-info__divider">|</span> 
+					<span class="shoe-info__cta{{shoes.cssClass}} text-uppercase">{{ shoes.cta }} <i  class="material-icons">arrow_forward</i></span>
+				</p>
+			</a>
+		</ng-container>
+	</ng-container>
+
+</div>

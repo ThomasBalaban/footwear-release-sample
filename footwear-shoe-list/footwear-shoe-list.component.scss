@@ -1,0 +1,89 @@
+@import "../../../../../../../styles/_chain-vars.scss";
+
+.shoe-container {
+    width: 100%;
+    margin: 50px auto 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+	flex: 1 0 100%;
+
+	a {
+		color: $color-white;
+	}
+
+	&.sortedLaunched {
+		a {
+			color: $primary-font-color;
+		}
+	}
+	
+	@media(min-width: 490px) {
+		flex: 1 0 45%;
+	}
+
+	@media (min-width: 992px) {
+		flex: 1 0 30%;
+	}
+
+	.shoe-block {
+		align-self: baseline;
+
+		@media(min-width: 490px){
+			width: 45%;
+			margin: 0 2.5% 30px;
+		}
+
+		@media(min-width: 992px){
+			width: 30%;
+			margin: 0 1.66% 60px;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.shoe-block__title {
+			font-family: $font-family-display;
+			font-weight: 700;
+			letter-spacing: 2px;
+			font-size: 2.4em;
+			margin: 20px 0 10px;
+		}
+
+		.shoe-info {
+			font-family: $font-family-primary;
+			font-size: 1.7em;
+			font-weight: 500;
+			margin: 0;
+
+			&__divider {
+				margin: 0 10px;
+			}
+			
+			&__cta__soldout{
+				background: $clearance-red;
+				color: $color-white;
+				padding:0px 5px;
+			}
+		}
+	}
+
+	a.shoe-block {
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+
+	i {
+		font-size: 16px;
+		margin: 0 0 0 5px;
+	}
+}
+
+.no-results-error {
+	width: 100%;
+	font-size: 2.4em;
+}

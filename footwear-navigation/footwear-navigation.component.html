@@ -1,0 +1,40 @@
+
+<div class="navbar">
+    <button class="text-uppercase" (click)="togglePageToUpcoming()" [ngClass]="activatedUpcoming ? 'active' : '' ">Upcoming</button>
+    <button class="text-uppercase" (click)="togglePageToLaunched()" [ngClass]="activatedLaunched ? 'active' : '' ">Launched</button>
+    
+</div>
+
+<section class="filters">
+	<div class="box">
+		<mat-form-field>
+			<mat-select matNativeControl class="form-control" (change)="onChangeCategory($event)" [(ngModel)]="selectedCategory" name="category">
+				<mat-option value="defaultCategory">All Categories</mat-option>
+				<mat-option *ngFor="let cat of footwearCategories" [value]="cat.category">
+					{{cat.display}}
+				</mat-option>										
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div class="box">
+		<mat-form-field>
+			<mat-select matNativeControl class="form-control" (change)="onChangeBrand($event)" [(ngModel)]="selectedBrand" name="brand">
+				<mat-option value="defaultBrand">All Brands</mat-option>
+				<mat-option *ngFor="let b of footwearBrands" [value]="b.brand">
+					{{b.brand}}
+				</mat-option>										
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<!-- <div class="box">
+		<select matNativeControl class="form-control" [(ngModel)]="selectedGender" name="gender">
+			<option value="all">All Genders</option>
+			<option *ngFor="let g of footwearGenders" [value]="g.gender">
+				{{g.name}}
+			</option>										
+		</select>
+	</div> 
+	<div class="box">
+		<button class="text-uppercase">Reset</button>
+	</div>-->
+</section>

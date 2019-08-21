@@ -1,0 +1,18 @@
+<app-marketing-breadcrumb [categoryId]="categoryId"></app-marketing-breadcrumb>
+
+<div id='release-calendar' [ngClass]="currentOption ? 'upcoming' : 'launched' ">
+	
+	<app-footwear-navigation 
+		(currentOption)='changeOption($event)'
+		(currentCategoryFilter)='updateCategoryFilter($event)'
+		(currentBrandFilter)='updateBrandFilter($event)'
+		[currentState]='option'>
+	</app-footwear-navigation>
+	
+	<app-footwear-shoe-list 
+		[currentOption]='currentOption'
+		[currentCategoryFilter]='currentCategoryFilter' 
+		[currentBrandFilter]='currentBrandFilter'>
+	</app-footwear-shoe-list>
+	
+</div>

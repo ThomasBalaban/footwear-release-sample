@@ -1,0 +1,37 @@
+@import "../../../../../../styles/_chain-vars.scss";
+
+::ng-deep {
+	.app-container {
+		max-width: 100% !important;
+		padding: 0;
+	}
+}
+
+#release-calendar {
+    background: $primary-font-color;
+    color: $color-white;
+    max-width: 2000px;
+    min-height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 10px;
+	transition: all .1s ease-in;
+	
+	&.launched {
+		background: $color-white;
+		color: $primary-font-color;
+	}
+
+    h1 {
+        font-family: $font-family-display;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 3.6em;
+        margin: 0;
+        padding: 20px 0;
+
+        @media(min-width: 992px){
+            font-size: 5.5em;
+        }
+    }
+}
